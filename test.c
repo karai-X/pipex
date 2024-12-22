@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 21:24:32 by karai             #+#    #+#             */
-/*   Updated: 2024/12/17 22:09:54 by karai            ###   ########.fr       */
+/*   Created: 2024/12/22 13:35:24 by karai             #+#    #+#             */
+/*   Updated: 2024/12/22 13:45:45 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PIPEX_H
-# define FT_PIPEX_H
-
-#include <fcntl.h>
+#include "pipex.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-# include <sys/wait.h>
-# include <sys/stat.h>
-#include <unistd.h>
 
-#include "libft.h"
-#include "ft_printf.h"
+int	main(void)
+{
+	extern char	**environ;
+	char		*cmd[3];
 
-#endif
+	cmd[0] = ft_strdup("sleep");
+	cmd[1] = ft_strdup("3");
+	cmd[2] = NULL;
+	execve("/usr/bin/sleep", cmd, environ);
+	return (0);
+}

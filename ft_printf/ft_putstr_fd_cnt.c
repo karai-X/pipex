@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 08:39:33 by karai             #+#    #+#             */
-/*   Updated: 2024/12/17 21:44:06 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/22 19:23:41 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putchar_fd_cnt(char c, int fd, int *cnt)
 {
 	fd = 2;
-	write(fd, &c, fd);
+	write(fd, &c, 1);
 	*cnt += 1;
 }
 
