@@ -1,1 +1,1 @@
-cat in.txt
+cat

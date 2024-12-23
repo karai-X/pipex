@@ -4,6 +4,8 @@ CC = cc
 SRC_DIR = ./srcs
 SRC = main.c\
 		free.c\
+		get_path_cmd.c\
+		utils.c\
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
