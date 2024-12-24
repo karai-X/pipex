@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karai <karai@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:24:32 by karai             #+#    #+#             */
-/*   Updated: 2024/12/24 02:55:38 by karai            ###   ########.fr       */
+/*   Updated: 2024/12/24 10:55:46 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ typedef struct s_data
 }			t_data;
 
 void		first_cmd(t_data *data, char *argv[], char *envp[]);
+void		second_cmd(t_data *data, char *argv[], char *envp[]);
+int			parent_process(t_data *data, pid_t pid[2]);
+int			main(int argc, char *argv[], char *envp[]);
 
 int			is_access(char *full_path);
 bool		is_full_relative_path(char *str);

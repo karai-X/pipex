@@ -14,23 +14,28 @@ OBJ_DIR = ./objs
 OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJ))
 
+LIBFTPRINTF = libftprintf.a
+LIBFTPRINTF_PATH = ./ft_printf
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-		@$(CC) $(CFLAGS) $(OBJS) libftprintf.a -o $(NAME) -I $(INC_DIR)
+$(NAME): $(OBJS) $(LIBFTPRINTF_PATH)/$(LIBFTPRINTF)
+		$(CC) $(CFLAGS) $^ -o $@ -I $(INC_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-		@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
+		mkdir -p objs
+		$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
 
-$(LIBFT):
-		@make -C $(LIBFT_PATH) all
+$(LIBFTPRINTF_PATH)/$(LIBFTPRINTF):
+	make -C $(LIBFTPRINTF_PATH) all
 
 clean:
-		@rm -f $(OBJS)
+		make -C $(LIBFTPRINTF_PATH) clean
+		rm -f $(OBJS)
 
 fclean: clean
-		@make clean
-		@rm -f $(NAME)
+		make -C $(LIBFTPRINTF_PATH) fclean
+		rm -f $(NAME)
 
 re: fclean all
 
